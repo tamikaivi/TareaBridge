@@ -1,24 +1,20 @@
 package ejercicio;
 
 public class Client {
-    public static void main (String [] args){
-        // create proxy
-        String mone = FactoryMoneda.make(FactoryMoneda.tipo.EURO).create();
-        IBanco proxy = new Proxy(new Persona(mone,90));
+    public static void main(String []args){
+        Composite subTask = new Composite("Sub Task");
+        subTask.add(new Item("Item 1",4,"Descrip cion 1","Titulo 1"));
 
-        proxy.depositar();
-        proxy.retirar();
 
-        String mone1 = FactoryMoneda.make(FactoryMoneda.tipo.BOLIVIANOS).create();
-        IBanco proxy1 = new Proxy(new Persona(mone1,90));
 
-        proxy1.depositar();
-        proxy1.retirar();
+        Composite task = new Composite(" Task ");
+        task.add(subTask);
 
-        String mone2 = FactoryMoneda.make(FactoryMoneda.tipo.DOLAR).create();
-        IBanco proxy2 = new Proxy(new Persona(mone2,90));
 
-        proxy2.depositar();
-        proxy2.retirar();
+        Composite userHostori = new Composite("User Story");
+
+        userHostori.add(task);
+
+        userHostori.imprimir();
     }
 }
