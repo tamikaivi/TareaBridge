@@ -1,20 +1,14 @@
 package ejercicio;
 
 public class Client {
-    public static void main(String []args){
-        Composite subTask = new Composite("Sub Task");
-        subTask.add(new Item("Item 1",4,"Descrip cion 1","Titulo 1"));
+    public static void main(String[] args) {
+        ComputadoraGamer gamer= new ComputadoraGamer(100);
+        Computadora compuGamer = gamer;
+        compuGamer = new TecladoGamer(compuGamer);
+        compuGamer = new TargetaGamer(compuGamer);
+        compuGamer = new MouseGamer(compuGamer);
+        compuGamer = new MonitorSamsung(compuGamer);
 
-
-
-        Composite task = new Composite(" Task ");
-        task.add(subTask);
-
-
-        Composite userHostori = new Composite("User Story");
-
-        userHostori.add(task);
-
-        userHostori.imprimir();
+        compuGamer.operation(gamer);
     }
 }
